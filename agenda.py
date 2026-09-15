@@ -1,3 +1,8 @@
+import json
+
+ARQUIVO = "contatos.json"
+
+
 def adicionar_contato(contatos, nome, telefone):
     contato = {"nome": nome, "telefone": telefone}
     contatos.append(contato)
@@ -25,3 +30,16 @@ def remover_contato(contatos, nome):
             contatos.remove(contato)
             return True
     return False
+
+
+def salvar_contatos(contatos, caminho=ARQUIVO):
+    with open(caminho, "w", encoding="utf-8") as arquivo:
+        json.dump(contatos, arquivo, ensure_ascii=False, indent=2)
+
+
+def carregar_contatos(caminho=ARQUIVO):
+    try:
+        with open(caminho, "r", encoding="utf-8") as arquivo:
+            return json.load(arquivo)
+    except FileNotFoundError:
+        return []

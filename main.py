@@ -1,6 +1,13 @@
-from agenda import adicionar_contato, listar_contatos, buscar_contato, remover_contato
+from agenda import (
+    adicionar_contato,
+    listar_contatos,
+    buscar_contato,
+    remover_contato,
+    salvar_contatos,
+    carregar_contatos,
+)
 
-contatos = []
+contatos = carregar_contatos()
 
 
 def mostrar_menu():
@@ -21,6 +28,7 @@ def main():
             nome = input("Nome: ")
             telefone = input("Telefone: ")
             adicionar_contato(contatos, nome, telefone)
+            salvar_contatos(contatos)
             print("contato adicionado")
         elif opcao == "2":
             listar_contatos(contatos)
@@ -35,6 +43,7 @@ def main():
         elif opcao == "4":
             nome = input("Nome para remover: ")
             if remover_contato(contatos, nome):
+                salvar_contatos(contatos)
                 print("contato removido")
             else:
                 print("contato nao encontrado")
