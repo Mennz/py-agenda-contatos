@@ -17,3 +17,11 @@ def buscar_contato(contatos, nome):
     nome = nome.lower()
     encontrados = [c for c in contatos if nome in c["nome"].lower()]
     return encontrados
+
+
+def remover_contato(contatos, nome):
+    for contato in contatos:
+        if contato["nome"].lower() == nome.lower():
+            contatos.remove(contato)
+            return True
+    return False

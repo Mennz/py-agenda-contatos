@@ -1,4 +1,4 @@
-from agenda import adicionar_contato, listar_contatos, buscar_contato
+from agenda import adicionar_contato, listar_contatos, buscar_contato, remover_contato
 
 contatos = []
 
@@ -33,7 +33,11 @@ def main():
                 for contato in encontrados:
                     print(f"{contato['nome']} - {contato['telefone']}")
         elif opcao == "4":
-            print("remover ainda nao foi feito")
+            nome = input("Nome para remover: ")
+            if remover_contato(contatos, nome):
+                print("contato removido")
+            else:
+                print("contato nao encontrado")
         elif opcao == "5":
             print("ate mais!")
             break
