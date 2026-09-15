@@ -1,4 +1,4 @@
-from agenda import adicionar_contato
+from agenda import adicionar_contato, listar_contatos
 
 contatos = []
 
@@ -23,7 +23,7 @@ def main():
             adicionar_contato(contatos, nome, telefone)
             print("contato adicionado")
         elif opcao == "2":
-            print("listar ainda nao foi feito")
+            listar_contatos(contatos)
         elif opcao == "3":
             print("buscar ainda nao foi feito")
         elif opcao == "4":
