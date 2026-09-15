@@ -11,3 +11,9 @@ def listar_contatos(contatos):
 
     for contato in contatos:
         print(f"{contato['nome']} - {contato['telefone']}")
+
+
+def buscar_contato(contatos, nome):
+    nome = nome.lower()
+    encontrados = [c for c in contatos if nome in c["nome"].lower()]
+    return encontrados

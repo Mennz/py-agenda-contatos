@@ -1,4 +1,4 @@
-from agenda import adicionar_contato, listar_contatos
+from agenda import adicionar_contato, listar_contatos, buscar_contato
 
 contatos = []
 
@@ -25,7 +25,13 @@ def main():
         elif opcao == "2":
             listar_contatos(contatos)
         elif opcao == "3":
-            print("buscar ainda nao foi feito")
+            nome = input("Nome para buscar: ")
+            encontrados = buscar_contato(contatos, nome)
+            if not encontrados:
+                print("nenhum contato encontrado")
+            else:
+                for contato in encontrados:
+                    print(f"{contato['nome']} - {contato['telefone']}")
         elif opcao == "4":
             print("remover ainda nao foi feito")
         elif opcao == "5":
