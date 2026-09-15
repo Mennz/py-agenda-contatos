@@ -27,9 +27,12 @@ def main():
         if opcao == "1":
             nome = input("Nome: ")
             telefone = input("Telefone: ")
-            adicionar_contato(contatos, nome, telefone)
-            salvar_contatos(contatos)
-            print("contato adicionado")
+            if not nome.strip():
+                print("nome nao pode ser vazio")
+            else:
+                adicionar_contato(contatos, nome, telefone)
+                salvar_contatos(contatos)
+                print("contato adicionado")
         elif opcao == "2":
             listar_contatos(contatos)
         elif opcao == "3":
