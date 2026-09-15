@@ -1,3 +1,8 @@
+from agenda import adicionar_contato
+
+contatos = []
+
+
 def mostrar_menu():
     print("\n--- Agenda de Contatos ---")
     print("1 - Adicionar contato")
@@ -13,7 +18,10 @@ def main():
         opcao = input("Escolha uma opcao: ")
 
         if opcao == "1":
-            print("adicionar ainda nao foi feito")
+            nome = input("Nome: ")
+            telefone = input("Telefone: ")
+            adicionar_contato(contatos, nome, telefone)
+            print("contato adicionado")
         elif opcao == "2":
             print("listar ainda nao foi feito")
         elif opcao == "3":
